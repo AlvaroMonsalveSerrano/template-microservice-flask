@@ -1,0 +1,3 @@
+
+class UseCaseRequestException(Exception):
+    pass
