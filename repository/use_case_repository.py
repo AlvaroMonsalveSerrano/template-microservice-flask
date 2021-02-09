@@ -1,8 +1,10 @@
 import abc
 import uuid
+import logging
 
 from domain import entity_model
-from flask import current_app
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class AbstractUseCaseRepository(abc.ABC):
@@ -21,7 +23,7 @@ class AbstractUseCaseRepository(abc.ABC):
 
 class UseCaseRepository(AbstractUseCaseRepository):
     """
-    Definition of the operations that connect to a database.
+    Definition of the operations that connect to database.
     """
 
     def __init__(self) -> None:
@@ -29,7 +31,7 @@ class UseCaseRepository(AbstractUseCaseRepository):
 
     def add(self, entity: entity_model.UseCaseEntity) -> bool:
         result: bool = False
-        current_app.logger.info(f"[***] /use_case_repository.add")
+        logging.info(f"[***] /use_case_repository.add")
         if entity is not None:
             result = True
             self.database.append(entity)
@@ -39,7 +41,7 @@ class UseCaseRepository(AbstractUseCaseRepository):
         index = 0
         enc = False
         result: entity_model.UseCaseEntity = None
-        current_app.logger.info(f"[***] /use_case_repository.get")
+        logging.info(f"[***] /use_case_repository.get")
         while (index < len(self.database)) and not enc:
             aux: entity_model.UseCaseEntity = self.database[index]
             if aux.uuid == uuid.UUID(p_uuid):

@@ -1,7 +1,11 @@
 import uuid
+import logging
 
 from datetime import date
 from domain import entity_model
+
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def test_use_case_request():

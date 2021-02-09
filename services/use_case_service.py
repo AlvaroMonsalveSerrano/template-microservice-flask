@@ -1,10 +1,10 @@
 
+import logging
+
 from datetime import date
 from domain import entity_model
 from exceptions import use_case_exception
 from repository import use_case_repository
-
-from flask import current_app
 
 
 def do_something(request: entity_model.UseCaseRequest,
@@ -21,7 +21,7 @@ def do_something(request: entity_model.UseCaseRequest,
     if request is None:
         raise use_case_exception.UseCaseRequestException()
 
-    current_app.logger.info(f"[**] /use_case_service.do_something")
+    logging.info(f"[**] /use_case_service.do_something")
 
     entity = entity_model.UseCaseEntity(uuid=request.uuid,
                                         name=request.name,

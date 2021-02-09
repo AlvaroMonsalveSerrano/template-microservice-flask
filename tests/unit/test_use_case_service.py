@@ -1,6 +1,7 @@
 
 import uuid
 import pytest
+import logging
 
 from domain import entity_model
 from services import use_case_service
@@ -27,6 +28,9 @@ class FakeUseCaseRepository(use_case_repository.AbstractUseCaseRepository):
                         operation="+",
                         operator=10,
                         date_data=None)
+
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def test_do_something():
