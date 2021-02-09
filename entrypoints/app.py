@@ -87,3 +87,7 @@ def do_use_case_example():
     data = jsonify({'result': response_use_case.resul})
 
     return data, 200
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

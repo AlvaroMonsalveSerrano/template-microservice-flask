@@ -4,6 +4,9 @@
 
 Ejemplo de creación de una plantilla para un microservicio.
 
+Todo el código definido en el proyecto tiene como objetivo describir elementos básicos necesarios
+con una finalidad didáctica.
+
 ## Creación
 
     1.- Creación de la carpeta del proyecto.
@@ -24,6 +27,11 @@ Ejemplo de creación de una plantilla para un microservicio.
     5.- Instalación d elas dependencias: $>pip install -r requirements.txt  
 
 ## Test
+
+```
+pytest --setup-show
+```
+
 
 ## Run
 
