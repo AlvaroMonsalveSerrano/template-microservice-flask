@@ -9,22 +9,14 @@ con una finalidad didáctica.
 
 ## Creación
 
-    1.- Creación de la carpeta del proyecto.
-    2.- Creación del fichero README.md
-    3.- Creación del fichero requirements.txt
-    4.- Creación del entorno virtual.
-      4.1.- Creación del entorno: $>virtualenv -p python3.6 .venv
-      4.2.- Activar el entorno: $>source .venv/bin/activate
-      4.3.- Para desactivar el entorno: $>desactivate
+    1.- Creación del entorno virtual.
+      1.1.- Creación del entorno: $>virtualenv -p python3.6 .venv
+      1.2.- Activar el entorno: $>source .venv/bin/activate
+      1.3.- Para desactivar el entorno: $>desactivate
     
       El entorno virtual se instala en la carpeta .venv del proyecto.
     
-    4.- Definición del fichero de requerimientos
-    
-    El fichero requirements.txt localizado en la raíz del proyecto, define todas aquellas dependencias de librerías
-    necesarias para realizar la funcionalidad del proyecto    
-    
-    5.- Instalación d elas dependencias: $>pip install -r requirements.txt  
+    2.- Instalación d elas dependencias: $>pip install -r requirements.txt  
 
 ## Test
 
@@ -64,24 +56,39 @@ curl --header "Content-Type: application/json" --request POST \
 
 ## Docker 
 
-1.- Creación de la imagen.
+1.- Creación de la imagen. Operación **build** del fichero Makefile.
 ``` 
 docker image build -t alvaroms/template-microservice:v1.0 .
+
+>make build
 ```
 
-2.- Arrancar el contenedor.
+2.- Arrancar el contenedor. Operación **run** del fichero Makefile.
 ``` 
 docker container run -d --name template-microservice -p 6060:80 alvaroms/template-microservice:v1.0
+
+>make run
 ```
 
-3.- Entrar en la consola del contenedor.
+3.- Entrar en la consola del contenedor. Operación **exec** del fichero Makefile.
 ``` 
 docker container exec -it template-microservice /bin/sh
+
+>make exec
 ```
 
-4.- Visualizar los logs del contenedor.
+4.- Visualizar los logs del contenedor. Operación **logs** del fichero Makefile.
 ``` 
 docker container logs template-microservice
+
+> make logs
+```
+
+5.- Para la ejecución conjunto de las operaciones básicas: test, creación de la imagen y arranque
+se emplea el comando **all** del fichero Makefile.
+
+```
+>make all
 ```
 
 Para probar los endpoints de la aplicación arrancada en el contenedor, se pueden utilizar los siguientes comandos curl:
